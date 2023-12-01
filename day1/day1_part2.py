@@ -7,25 +7,25 @@ with open('input.txt', 'r') as input_file:
         line_list.append(row)
 
 number_dict = {
-    'one': '1',
-    'two': '2',
-    'three': '3',
-    'four': '4',
-    'five': '5',
-    'six': '6',
-    'seven': '7',
-    'eight': '8',
-    'nine': '9'
+    'one': 'on1e',
+    'two': 'tw2o',
+    'three': 'thre3e',
+    'four': 'fou4r',
+    'five': 'fiv5e',
+    'six': 'si6x',
+    'seven': 'seve7n',
+    'eight': 'eigh8t',
+    'nine': 'nin9e'
 }
+# using values of 'on1e', 'tw2o', 'thre3e' rather than '1', '2', '3' etc accounts for cases of 'overlapping' words
+# e.g. now when the lambda function replaces the 'two' in 'eightwo', there is still the correct info available to
+# identify the 'eight'!
+# previously, replacing 'two' with '2' left 'eigh', which would not be picked up as an '8'
 
 replaced_lines = []
 for line in line_list:
     replace_number_line = reduce(lambda x, y: x.replace(y, number_dict[y]), number_dict, line)
     replaced_lines.append(replace_number_line)
-# the problem is here - in the case of combined numbers e.g. 'twone' which is both two and one,
-# the lambda function is going through the dict in order and replacing the 'one' part, leaving 'tw1'
-# this means the 'two' is not being recognised
-# same can happen for other number combos, e.g. 'oneight', 'sevenine', 'eightwo', 'nineight', 'eighthree'
 
 new_list = []
 for line in replaced_lines:
@@ -38,4 +38,4 @@ for i in new_list:
 
 print(f"Total: {total}")
 
-# result of 53201 is too low
+''' Completed! '''
