@@ -23,7 +23,7 @@ for line in line_list:
     replace_number_line = reduce(lambda x, y: x.replace(y, number_dict[y]), number_dict, line)
     replaced_lines.append(replace_number_line)
 # the problem is here - in the case of combined numbers e.g. 'twone' which is both two and one,
-# the lambda function is going through the dict and replacing the 'one' part, leaving 'tw1'
+# the lambda function is going through the dict in order and replacing the 'one' part, leaving 'tw1'
 # this means the 'two' is not being recognised
 # same can happen for other number combos, e.g. 'oneight', 'sevenine', 'eightwo', 'nineight', 'eighthree'
 
