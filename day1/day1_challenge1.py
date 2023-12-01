@@ -14,3 +14,5 @@ for i in new_list:
     total += int(i[0] + i[-1])
 
 print(f"Total: {total}")
+
+''' Completed! '''
