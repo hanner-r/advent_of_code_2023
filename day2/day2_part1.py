@@ -14,8 +14,8 @@ for game in games_list:
         valid_games.append(game)
 
 total = 0
-for game in valid_games:
-    components = game.split(':')
+for valid_game in valid_games:
+    components = valid_game.split(':')
     total += int(components[0])
 
 print(f'Total: {total}')
