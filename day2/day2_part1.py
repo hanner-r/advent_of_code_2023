@@ -1,5 +1,5 @@
 games_list = []
-with open('input.txt', 'r') as input_file:
+with open('day2_input.txt', 'r') as input_file:
     lines = input_file.readlines()
     for row in lines:
         game = row[5::].strip('\n')

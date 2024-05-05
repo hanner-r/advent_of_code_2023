@@ -1,7 +1,7 @@
 from functools import reduce
 
 line_list = []
-with open('input.txt', 'r') as input_file:
+with open('day1_input.txt', 'r') as input_file:
     lines = input_file.readlines()
     for row in lines:
         line_list.append(row)
