@@ -33,6 +33,6 @@ for x, line in enumerate(lines):
         if True in results:
             total += int(num.group(1))
 
-print(total)
+print(f'Total: {total}')
 
 '''Completed!'''
