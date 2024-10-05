@@ -3,23 +3,25 @@ import re
 with open('day3_input.txt', 'r') as input_file:
     lines = [line[:-1] for line in input_file.readlines()]
 
-number_of_lines = len(lines)
-line_length = len(lines[0])
 total = 0
-gears = []
+gears_dict = {}
 
-for x, line in enumerate(lines):
-    for y, idx in enumerate(line):
+for row, line in enumerate(lines):
+    for col, idx in enumerate(line):
         if idx == '*':
-            gears.append((x, y))
-            nums = re.finditer(r'(\d+)', line)
+            gears_dict[(row, col)] = []
 
-# idk !!!!
-# for gear in gears:
-#     x = gear[0]
-#     y = gear[1]
-#     for x in range(x+1, x-1):
-#         for y in range(y+1, y-1):
-#             nums = re.finditer(r'(\d+)', lines[x][y])
+for row, line in enumerate(lines):
+    for num in re.finditer(r'(\d+)', line):
+        for r in range(row - 1, row + 2):
+            for c in range(num.start() - 1, num.end() + 1):
+                if (r, c) in gears_dict:
+                    gears_dict[(r, c)].append(int(num.group()))
+
+for gear in gears_dict:
+    if len(gears_dict[gear]) == 2:
+        total += (gears_dict[gear][0] * gears_dict[gear][1])
 
 print(f'Total: {total}')
+
+'''Completed!'''
