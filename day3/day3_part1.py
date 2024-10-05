@@ -1,7 +1,7 @@
 import re
 
 with open('day3_input.txt', 'r') as input_file:
-    lines = [line[:-1] for line in input_file.readlines()]
+    lines = input_file.readlines()
 
 number_of_lines = len(lines)
 line_length = len(lines[0])
