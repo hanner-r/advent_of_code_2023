@@ -34,4 +34,4 @@ total = (len(total_list))
 print(f'Total: {total}')
 
 '''Completed! But there is a better way...this one takes a long time to run.'''
-''' Will revisit this later.'''
+'''Will revisit this later.'''
