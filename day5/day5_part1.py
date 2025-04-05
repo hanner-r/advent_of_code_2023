@@ -24,28 +24,28 @@ temperature_to_humidity_map = map_info[136:173]
 humidity_to_location_map = map_info[175:197]
 
 
-def get_destination_num(source_num, map):
+def get_destination_num(source_num, conversion_map):
     destination_num = int(source_num)
-    for line in map:
+    for line in conversion_map:
         line_items = [int(item) for item in line.split(' ')]
         if line_items[1] <= int(source_num) < line_items[1] + line_items[2]:
             destination_num = line_items[0] + (int(source_num) - line_items[1])
     return destination_num
 
 
-location_numbers = []
-for seed_num in seed_numbers:
-    soil_num = get_destination_num(seed_num, seed_to_soil_map)
-    fertiliser_num = get_destination_num(soil_num, soil_to_fertiliser_map)
-    water_num = get_destination_num(fertiliser_num, fertiliser_to_water_map)
-    light_num = get_destination_num(water_num, water_to_light_map)
-    temperature_num = get_destination_num(light_num, light_to_temperature_map)
-    humidity_num = get_destination_num(temperature_num, temperature_to_humidity_map)
-    location_num = get_destination_num(humidity_num, humidity_to_location_map)
-    location_numbers.append(location_num)
+if __name__ == '__main__':
+    location_numbers = []
+    for seed_num in seed_numbers:
+        soil_num = get_destination_num(seed_num, seed_to_soil_map)
+        fertiliser_num = get_destination_num(soil_num, soil_to_fertiliser_map)
+        water_num = get_destination_num(fertiliser_num, fertiliser_to_water_map)
+        light_num = get_destination_num(water_num, water_to_light_map)
+        temperature_num = get_destination_num(light_num, light_to_temperature_map)
+        humidity_num = get_destination_num(temperature_num, temperature_to_humidity_map)
+        location_num = get_destination_num(humidity_num, humidity_to_location_map)
+        location_numbers.append(location_num)
 
-location_numbers.sort()
-
-print(f'Lowest location number: {location_numbers[0]}')
+    location_numbers.sort()
+    print(f'Lowest location number: {location_numbers[0]}')
 
 '''Completed!'''
