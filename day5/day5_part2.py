@@ -54,4 +54,4 @@ if __name__ == '__main__':
         else:
             location_num += 1
 
-'''Takes nearly 2 minutes to run, but - Complete!!'''
+'''Takes nearly 2 minutes to run, but - Completed!!'''
