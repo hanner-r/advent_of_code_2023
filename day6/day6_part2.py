@@ -6,3 +6,4 @@ distance = int(distances[0] + distances[1] + distances[2] + distances[3])
 print(f'Total winning options: {count_winning_options(time, distance)}')
 
 '''Completed!'''
+'''test'''
