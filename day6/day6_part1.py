@@ -15,10 +15,11 @@ def count_winning_options(time, distance):
     return wins
 
 
-totals = 1
-for n in range(len(times)):
-    totals *= count_winning_options(int(times[n]), int(distances[n]))
+if __name__ == '__main__':
+    totals = 1
+    for n in range(len(times)):
+        totals *= count_winning_options(int(times[n]), int(distances[n]))
 
-print(f'Product of win totals: {totals}')
+    print(f'Product of win totals: {totals}')
 
 '''Completed!'''
